@@ -1,0 +1,19 @@
+name       : solus-mate-transition-tool
+version    : '0.3'
+release    : 1
+source     :
+    - https://github.com/getsolus/solus-mate-transition-tool/archive/refs/tags/v0.3.tar.gz : fd5d7d90fde0ecb5d533509da52f716b1adae59ef6ded07e43acec1ecd4653e7
+homepage   : https://github.com/getsolus/solus-mate-transition-tool
+license    : GPL-2.0-or-later
+component  : desktop
+summary    : This is a tool is to help MATE users transition to a Budgie or XFCE environment without completely reinstalling
+description: |
+    As of Solus 4.5 the MATE Edition is deprecated and the MATE desktop enviornment will not be maintained. This is a tool is to help MATE users transition to a Budgie or XFCE environment without completely reinstalling.
+rundeps    :
+    - packagekit
+setup      : |
+    %meson_configure --libexecdir="libexec"
+build      : |
+    %ninja_build
+install    : |
+    %ninja_install
