@@ -1,8 +1,8 @@
 name       : ypkg
 version    : '31'
-release    : 174
+release    : 175
 source     :
-    - git|https://github.com/getsolus/ypkg.git : e676667ad54dd1aa21fad804225c9a791fd77813
+    - git|https://github.com/getsolus/ypkg.git : a05f28351267abc3363c2bb04c66408dbd4ed1fa
 homepage   : https://github.com/getsolus/ypkg
 license    : GPL-3.0-or-later
 component  : system.devel
@@ -10,19 +10,39 @@ summary    : Modern, declarative, structured build format
 description: |
     ypkg is the build tool of choice for Solus. Simply put, it is a tool to convert a build process into a packaging operation.
 mancompress: yes
+strip      : no
+debug      : no
 builddeps  :
-    - python-setuptools
+    - pkgconfig(python3)
+    - nuitka
+    - patchelf
+    - python-zstandard
+    - python-eopkg
 rundeps    :
     - fakeroot
     - pyyaml
+    - python-eopkg
     - ruamel_yaml
+environment: |
+    # ensure our nuitka build doesn't pull in -v3 hwcaps libs
+    export GLIBC_TUNABLES=glibc.cpu.hwcaps=-AVX
 setup      : |
-    %patch -p1 -i $pkgfiles/0001-Call-out-to-sha256sum-instead-of-using-hashlib-which.patch
+    %python3_setup
 build      : |
-    %python_setup
+    # build static bins from ypkg
+    nuitka3 --onefile --include-module=dbm.gnu --show-scons --no-deployment-flag=self-execution $workdir/ypkg
+    nuitka3 --onefile --include-module=dbm.gnu --show-scons --no-deployment-flag=self-execution $workdir/ypkg-build
+    nuitka3 --onefile --include-module=dbm.gnu --show-scons --no-deployment-flag=self-execution $workdir/ypkg-install-deps
+    nuitka3 --onefile --include-module=dbm.gnu --show-scons --no-deployment-flag=self-execution $workdir/ypkg-gen-history
+    nuitka3 --onefile --include-module=dbm.gnu --show-scons --no-deployment-flag=self-execution $workdir/yupdate
+    nuitka3 --onefile --include-module=dbm.gnu --show-scons --no-deployment-flag=self-execution $workdir/ybump
 install    : |
-    %python_install
-    # These are going to be replaced by ypkg-tools
-    install -Ddm00755 $installdir/usr/share/ypkg
-    ln -sv ../../bin/yupdate $installdir/usr/share/ypkg/yupdate.py
-    ln -sv ../../bin/ybump $installdir/usr/share/ypkg/ybump.py
+    %python3_install
+
+    # now override bins with our nuitka'd variants
+    install -Dm0755 $workdir/ypkg.bin $installdir/usr/bin/ypkg
+    install -Dm0755 $workdir/ypkg-build.bin $installdir/usr/bin/ypkg-build
+    install -Dm0755 $workdir/ypkg-install-deps.bin $installdir/usr/bin/ypkg-install-deps
+    install -Dm0755 $workdir/ypkg-gen-history.bin $installdir/usr/bin/ypkg-gen-history
+    install -Dm0755 $workdir/yupdate.bin $installdir/usr/bin/yupdate
+    install -Dm0755 $workdir/ybump.bin $installdir/usr/bin/ybump
