@@ -1,6 +1,6 @@
 name       : protonmail-bridge
 version    : 3.8.2
-release    : 20
+release    : 21
 source     :
     - https://github.com/ProtonMail/proton-bridge/archive/refs/tags/v3.8.2.tar.gz : 3d844fa74c06767283a73305737e82b9ec7c59cc35d08fcb8a5bd68a128735e2
 homepage   : https://proton.me/mail/bridge

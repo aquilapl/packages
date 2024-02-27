@@ -3,8 +3,8 @@
         <Name>protonmail-bridge</Name>
         <Homepage>https://proton.me/mail/bridge</Homepage>
         <Packager>
-            <Name>Jasper Behrensdorf</Name>
-            <Email>solus.citizen140@passmail.net</Email>
+            <Name>Evan Maddock</Name>
+            <Email>maddock.evan@vivaldi.net</Email>
         </Packager>
         <License>GPL-3.0-or-later</License>
         <PartOf>network.mail</PartOf>
@@ -28,12 +28,12 @@
         </Files>
     </Package>
     <History>
-        <Update release="20">
-            <Date>2024-02-05</Date>
+        <Update release="21">
+            <Date>2024-02-27</Date>
             <Version>3.8.2</Version>
             <Comment>Packaging update</Comment>
-            <Name>Jasper Behrensdorf</Name>
-            <Email>solus.citizen140@passmail.net</Email>
+            <Name>Evan Maddock</Name>
+            <Email>maddock.evan@vivaldi.net</Email>
         </Update>
     </History>
 </PISI>
