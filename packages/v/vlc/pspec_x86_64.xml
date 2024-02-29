@@ -3,8 +3,8 @@
         <Name>vlc</Name>
         <Homepage>https://www.videolan.org/</Homepage>
         <Packager>
-            <Name>Reilly Brogan</Name>
-            <Email>solus@reillybrogan.com</Email>
+            <Name>Tracey Clark</Name>
+            <Email>tracey.dev@tlcnet.info</Email>
         </Packager>
         <License>GPL-2.0-or-later</License>
         <License>LGPL-2.1-or-later</License>
@@ -802,11 +802,11 @@
     </Package>
     <History>
         <Update release="176">
-            <Date>2024-03-01</Date>
+            <Date>2024-03-02</Date>
             <Version>3.0.20</Version>
             <Comment>Packaging update</Comment>
-            <Name>Reilly Brogan</Name>
-            <Email>solus@reillybrogan.com</Email>
+            <Name>Tracey Clark</Name>
+            <Email>tracey.dev@tlcnet.info</Email>
         </Update>
     </History>
 </PISI>
