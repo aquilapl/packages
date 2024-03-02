@@ -10,7 +10,7 @@ summary    : vi-like editor based on Plan 9's structural regular expressions
 description: |
     vi-like editor based on Plan 9's structural regular expressions
 builddeps  :
-    - pkgconfig(lua)
+    - pkgconfig(lua-5.4)
     - pkgconfig(ncursesw)
     - pkgconfig(termkey)
 rundeps    :
