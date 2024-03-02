@@ -12,7 +12,7 @@ description: |
 builddeps  :
     - pkgconfig(gtk+-3.0)
     - pkgconfig(libwnck-3.0)
-    - pkgconfig(lua)
+    - pkgconfig(lua-5.4)
 build      : |
     %make PREFIX=/usr
 install    : |
