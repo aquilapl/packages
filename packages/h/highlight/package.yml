@@ -10,12 +10,12 @@ summary    : Convert source code to formatted text with syntax highlighting
 description: |
     Highlight converts source code to HTML, XHTML, RTF, LaTex, TeX, SVG, BBCode and terminal escape sequences with coloured syntax highlighting. Language definitions and colour themes are customizable.
 builddeps  :
-    - pkgconfig(lua)
+    - pkgconfig(lua-5.4)
     - libboost-devel
 build      : |
     %make
 install    : |
     %make_install
 
-    # remove necessary documentation files
+    # remove documentation files
     rm -r $installdir/usr/share/doc
