@@ -86,11 +86,11 @@ builddeps  :
     - pkgconfig(dbus-glib-1)
     - pkgconfig(gaminggear-0)
     - pkgconfig(gtk+-2.0)
-    - pkgconfig(lua-5.3)
+    - pkgconfig(lua-5.4)
     - pkgconfig(x11)
 setup      : |
     %apply_patches
-    %cmake_ninja -DWITH_LUA="5.3" -DCMAKE_MODULE_PATH="/usr/share/libgaminggear/cmake/Modules"
+    %cmake_ninja -DWITH_LUA="5.4" -DCMAKE_MODULE_PATH="/usr/share/libgaminggear/cmake/Modules"
 build      : |
     %ninja_build
 install    : |
