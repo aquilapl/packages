@@ -43,5 +43,5 @@ install    : |
     # now override bins with our nuitka'd variants
     for b in ypkg ypkg-build ypkg-install-deps ypkg-gen-history ybump yupdate
     do
-        install -Dm0755 $workdir/$b $installdir/usr/bin/$b
+        install -Dm0755 $workdir/$b.bin $installdir/usr/bin/$b
     done
