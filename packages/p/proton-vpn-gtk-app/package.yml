@@ -1,8 +1,8 @@
 name       : proton-vpn-gtk-app
-version    : 4.7.3
-release    : 9
+version    : 4.9.4
+release    : 15
 source     :
-    - https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/v4.7.3.tar.gz : 4bb189ef607c4f7dc5bfae3d040a2aeb1ad4379d6ef48203c19f8c48e33a80ab
+    - https://github.com/ProtonVPN/proton-vpn-gtk-app/archive/refs/tags/v4.9.4.tar.gz : 8f27343b5f51ccef0a6876fab299cbf6e735d1bce56b4df243e9341ed87fa51a
 homepage   : https://protonvpn.com/download-linux
 license    : GPL-3.0-or-later
 component  : programming.python
@@ -30,6 +30,7 @@ rundeps    :
     - python-proton-core
     - python-proton-keyring-linux
     - python-proton-vpn-core-api
+    - python-proton-vpn-local-agent
     - python-proton-vpn-network-manager
     - python-pynacl
     - python-requests
